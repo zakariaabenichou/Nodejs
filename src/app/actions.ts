@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { generateRecipe } from '@/ai/flows/generate-recipe';
 import { contextualizeRecipe } from '@/ai/flows/contextualize-recipe';
+import { generateRecipeImage } from '@/ai/flows/generate-recipe-image';
 import type { Recipe } from '@/types';
 
 const schema = z.object({
@@ -29,7 +30,11 @@ export async function getRecipeDetails(prevState: FormState, formData: FormData)
   }
 
   try {
-    const recipeData = await generateRecipe({ dishName: validatedFields.data.dishName });
+    const [recipeData, imageData] = await Promise.all([
+      generateRecipe({ dishName: validatedFields.data.dishName }),
+      generateRecipeImage({ dishName: validatedFields.data.dishName }),
+    ]);
+
     if (!recipeData || !recipeData.recipeName) {
       return { error: { _global: ['Could not generate recipe. Please try a different dish name.'] } };
     }
@@ -39,6 +44,7 @@ export async function getRecipeDetails(prevState: FormState, formData: FormData)
     const fullRecipe: Recipe = {
       ...recipeData,
       ...contextData,
+      ...imageData,
     };
 
     return { data: fullRecipe };

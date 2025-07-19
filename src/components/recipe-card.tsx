@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ThumbsUp, ThumbsDown, MapPin, Utensils, Hash } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,7 +16,18 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
   const [rating, setRating] = useState<'liked' | 'disliked' | null>(null);
 
   return (
-    <Card className="w-full max-w-2xl shadow-lg animate-in fade-in-0 zoom-in-95 duration-500 border-border/50">
+    <Card className="w-full max-w-2xl shadow-lg animate-in fade-in-0 zoom-in-95 duration-500 border-border/50 overflow-hidden">
+      {recipe.imageUrl && (
+        <div className="relative w-full aspect-video">
+           <Image 
+              src={recipe.imageUrl}
+              alt={`A picture of ${recipe.recipeName}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+        </div>
+      )}
       <CardHeader>
         <CardTitle className="font-headline text-3xl text-primary">{recipe.recipeName}</CardTitle>
         <CardDescription className="font-body flex items-center gap-2 pt-2 text-muted-foreground">
