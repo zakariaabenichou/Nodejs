@@ -1,7 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
 
 import { getRecipeDetails } from '@/app/actions';
 import { RecipeCard } from '@/components/recipe-card';
@@ -36,7 +36,7 @@ function SubmitButton() {
 }
 
 export default function Home() {
-  const [state, formAction] = useFormState(getRecipeDetails, initialState);
+  const [state, formAction] = useActionState(getRecipeDetails, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
