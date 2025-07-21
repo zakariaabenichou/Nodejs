@@ -30,7 +30,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full mt-4 font-body">
-      {pending ? <LoaderCircle className="animate-spin" /> : 'Generate Recipe'}
+      {pending ? <LoaderCircle className="animate-spin" /> : 'Grant my Wish!'}
     </Button>
   );
 }
@@ -64,17 +64,17 @@ export default function Home() {
     <div className="flex flex-col items-center min-h-screen bg-background text-foreground p-4 sm:p-8">
       <header className="flex flex-col items-center text-center my-8">
         <ChefHat className="w-20 h-20 text-primary mb-4" />
-        <h1 className="font-headline text-5xl md:text-6xl font-bold text-primary">RecipeSage</h1>
+        <h1 className="font-headline text-5xl md:text-6xl font-bold text-primary">Gourmet Genie</h1>
         <p className="font-body text-lg text-muted-foreground mt-2 max-w-md">
-          Your AI-powered culinary companion. Just name a dish, and we'll whip up the recipe.
+          Your wish is my command! Just name a dish, and I'll grant you the recipe.
         </p>
       </header>
       
       <main className="w-full max-w-2xl mx-auto flex flex-col gap-8 items-center">
         <Card className="w-full shadow-lg border-border/50">
           <CardHeader>
-            <CardTitle className="font-headline text-2xl text-primary/90">Let's Get Cooking!</CardTitle>
-            <CardDescription className="font-body">What are we making today?</CardDescription>
+            <CardTitle className="font-headline text-2xl text-primary/90">What is Your Wish?</CardTitle>
+            <CardDescription className="font-body">What culinary masterpiece shall we create?</CardDescription>
           </CardHeader>
           <CardContent>
             <form ref={formRef} action={formAction} className="space-y-2">
@@ -102,7 +102,7 @@ export default function Home() {
       </main>
 
       <footer className="text-center p-4 mt-auto text-muted-foreground font-body text-sm">
-        <p>Crafted with <span className="text-primary">&hearts;</span> by RecipeSage.</p>
+        <p>Crafted with <span className="text-primary">&hearts;</span> by Gourmet Genie.</p>
       </footer>
     </div>
   );

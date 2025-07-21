@@ -3,8 +3,8 @@ import './globals.css';
 import { ToasterWrapper } from '@/components/toaster-wrapper';
 
 export const metadata: Metadata = {
-  title: 'RecipeSage',
-  description: 'Generate recipes for any dish you can imagine.',
+  title: 'Gourmet Genie',
+  description: 'Your personal AI chef, granting your culinary wishes.',
 };
 
 export default function RootLayout({
