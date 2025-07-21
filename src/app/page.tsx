@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { ChefHat, LoaderCircle } from 'lucide-react';
+import { Sparkles, LoaderCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import type { Recipe } from '@/types';
 
@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-background text-foreground p-4 sm:p-8">
       <header className="flex flex-col items-center text-center my-8">
-        <ChefHat className="w-20 h-20 text-primary mb-4" />
+        <Sparkles className="w-20 h-20 text-primary mb-4" />
         <h1 className="font-headline text-5xl md:text-6xl font-bold text-primary">Gourmet Genie</h1>
         <p className="font-body text-lg text-muted-foreground mt-2 max-w-md">
           Your wish is my command! Just name a dish, and I'll grant you the recipe.
